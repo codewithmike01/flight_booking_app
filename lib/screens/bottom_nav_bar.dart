@@ -1,7 +1,6 @@
+import 'package:flight_booking_app/screens/home_screen.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -13,7 +12,7 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
   final List<Widget> _tappedPages = [
-    const Text('Home'),
+    const HomeScreen(),
     const Text('Search'),
     const Text('Ticket'),
     const Text('Profile')
