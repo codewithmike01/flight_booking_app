@@ -11,6 +11,20 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
+  int _selectedIndex = 0;
+  final List<Widget> _tappedPages = [
+    const Text('Home'),
+    const Text('Search'),
+    const Text('Ticket'),
+    const Text('Profile')
+  ];
+
+  void _onTabChange(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,13 +32,16 @@ class _BottomNavBarState extends State<BottomNavBar> {
         title: const Text("Air Ways"),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text('Body'),
+      body: Center(
+        child: _tappedPages[_selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _selectedIndex,
+          onTap: _onTabChange,
+          type: BottomNavigationBarType.fixed,
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          selectedItemColor: Colors.blueAccent,
+          selectedItemColor: const Color.fromARGB(255, 52, 105, 197),
           unselectedItemColor: const Color.fromARGB(195, 111, 161, 241),
           items: const [
             BottomNavigationBarItem(
